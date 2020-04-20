@@ -20,18 +20,23 @@
     @media screen and ( max-width: 899px )
       margin-top: 20px
 
-.input
+.color-form
   position: relative
   min-width: 300px
   max-width: 400px
   width: 80%
   display: flex
-  justify-content: center
   align-items: center
+  flex-direction: column
   border-radius: $borderRadius
   margin-top: 20px
   padding: 40px 20px 40px 20px
   @include materialBackground
+
+  &__row
+    display: flex
+    justify-content: center
+    align-items: center
 
   &__title
     position: relative
@@ -40,7 +45,7 @@
     font-weight: bold
     font-size: 18px
   
-  &__field
+  &__input
     position: relative
     height: 30px
     width: 120px
@@ -63,6 +68,9 @@
 
     &:not(:placeholder-shown)
       opacity: 1
+
+  &__range
+    margin-top: 20px
 
 .color-pallete
   max-width: 1600px
