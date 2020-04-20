@@ -1,5 +1,6 @@
 import React, { useState, useMemo, Fragment } from "react"
 import { lightenColor, darkenColor } from "@utils"
+import { BaseButton } from "../../components"
 import "./index.sass"
 
 function MainPage() {
@@ -107,13 +108,12 @@ function MainPage() {
       <div className="color-pallete">
         <div className="color-pallete__header">
           <div className="color-pallete__title">Палитра оттенков</div>
-          <button
-            className="color-pallete__button"
+          <BaseButton
             disabled={!colors.length}
             onClick={() => copyToClipboard(stringColors)}
           >
             Копировать палитру
-          </button>
+          </BaseButton>
         </div>
         {colors.map((color) => (
           <div key={color.id} className="color-pallete__item" style={{ backgroundColor: color.hex }}>
