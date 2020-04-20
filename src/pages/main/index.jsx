@@ -84,7 +84,7 @@ function MainPage() {
 
   return (
     <Fragment>
-      <div className="App__logo">Colorpal.art</div>
+      <div className="app-logo">Colorpal.art</div>
       <div className="color-form">
         <div className="color-form__row">
           <div className="color-form__title">Укажите цвет:</div>
