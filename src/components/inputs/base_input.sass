@@ -1,0 +1,26 @@
+@import "../../sass/variables"
+
+.base-input
+  position: relative
+  height: 30px
+  width: 120px
+  padding: 0 20px 0 20px
+  box-sizing: border-box
+  border: none
+  border-bottom: 1px solid gray
+  font-size: 14px
+  letter-spacing: 2px
+  color: $primaryColor
+  opacity: .6
+  font-weight: bold
+  background-color: transparent
+
+  &:focus
+    opacity: 1
+
+  &::placeholder
+    color: lighten($primaryColor, 10)
+    opacity: .4
+
+  &:not(:placeholder-shown)
+    opacity: 1

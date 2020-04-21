@@ -1,6 +1,6 @@
 import React, { useState, useMemo, Fragment } from "react"
 import { lightenColor, darkenColor } from "@utils"
-import { BaseButton } from "../../components"
+import { BaseButton, BaseInput } from "../../components"
 import "./index.sass"
 
 function MainPage() {
@@ -88,13 +88,8 @@ function MainPage() {
       <div className="app-logo">Colorpal.art</div>
       <div className="color-form">
         <div className="color-form__row">
-          <div className="color-form__title">Укажите цвет:</div>
-          <input
-            className="color-form__input"
-            placeholder="#ff00ff"
-            value={inputValue}
-            onChange={onInputChangeHandler}
-          />
+          <div className="color-form__title">Pick a color:</div>
+          <BaseInput placeholder="#ff00ff" value={inputValue} onChange={onInputChangeHandler} />
         </div>
         <input
           className="color-form__range"
@@ -107,22 +102,19 @@ function MainPage() {
       </div>
       <div className="color-pallete">
         <div className="color-pallete__header">
-          <div className="color-pallete__title">Палитра оттенков</div>
-          <BaseButton
-            disabled={!colors.length}
-            onClick={() => copyToClipboard(stringColors)}
-          >
-            Копировать палитру
+          <div className="color-pallete__title">Color pallete</div>
+          <BaseButton disabled={!colors.length} onClick={() => copyToClipboard(stringColors)}>
+            Copy pallete
           </BaseButton>
         </div>
         {colors.map((color) => (
           <div key={color.id} className="color-pallete__item" style={{ backgroundColor: color.hex }}>
             <div
               className="color-pallete__item-code"
-              title="Скопировать в буфер обмена"
+              title="Copy"
               onClick={() => copyToClipboard(color.hex, color.id)}
             >
-              {copiedId === color.id ? "Скопировано" : color.hex}
+              {copiedId === color.id ? "Copied" : color.hex}
             </div>
           </div>
         ))}
