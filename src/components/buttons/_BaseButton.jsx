@@ -1,5 +1,5 @@
 import React from "react"
-import "./base_button.sass"
+import "./_base_button.sass"
 
 export const BaseButton = ({ children, ...otherProps }) => (
   <button className="base-button" {...otherProps}>

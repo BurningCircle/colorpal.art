@@ -1,0 +1,54 @@
+@import "~@/sass/variables"
+@import "~@/sass/mixins"
+
+.color-form
+  position: relative
+  min-width: 300px
+  max-width: 400px
+  width: 80%
+  display: flex
+  align-items: center
+  flex-direction: column
+  border-radius: $borderRadius
+  margin-top: 40px
+  padding: 40px 20px 40px 20px
+  @include materialBackground
+
+  &__row
+    display: flex
+    justify-content: center
+    align-items: center
+
+  &__title
+    position: relative
+    margin-right: 5px
+    color: $primaryColor
+    font-weight: bold
+    font-size: 24px
+  
+  &__input
+    position: relative
+    height: 30px
+    width: 120px
+    padding: 0 20px 0 20px 
+    box-sizing: border-box
+    border: none
+    border-bottom: 1px solid gray
+    font-size: 14px
+    letter-spacing: 2px
+    color: $primaryColor
+    opacity: .6
+    font-weight: bold
+    background-color: transparent
+
+    &:focus
+      opacity: 1
+
+    &::placeholder
+      color: lighten($primaryColor, 10)
+
+    &:not(:placeholder-shown)
+      opacity: 1
+
+  &__range
+    margin-top: 20px

@@ -5,3 +5,20 @@ $backgroundColor: #eff3f5
 $disabledColor: #84898C 
 
 $borderRadius: 2px
+
+$primaryColors: (100: #427FB4,200: #3572A7,300: #29669B,400: #1C598E,500: #0F4C81,600: #023F74,700: #003267,800: #00265B,900: #00194E,)
+
+$secondaryColors: (100: #FFEBC8,200: #FFDEBB,300: #FFD2AF,400: #FFC5A2,500: #F5B895,600: #E8AB88,700: #DB9E7B,800: #CF926F,900: #C28562,)
+
+$screenWidth: (pc: 1440px,minPc: 1920px,laptop: 720px)
+
+@function primaryColor($key) 
+  @return map-get($map: $primaryColors, $key: $key)
+
+@function secondaryColor($key) 
+  @return map-get($map: $secondaryColors, $key: $key)
+
+
+@function screenWidth($key) 
+  @return map-get($map: $screenWidth, $key: $key)
+

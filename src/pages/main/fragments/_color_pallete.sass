@@ -1,0 +1,61 @@
+@import "~@/sass/variables"
+@import "~@/sass/mixins"
+
+.color-pallete
+  width: 400px
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-top: 5vh
+  padding: 20px
+  border-radius: $borderRadius
+  @include materialBackground
+
+  &__header
+    position: relative
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 20px
+
+  &__title
+    font-weight: bold
+    font-size: 28px
+    color: $primaryColor
+
+  &__item
+    position: relative
+    width: 100%
+    height: 5vh
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    padding-left: 20px
+
+    &:nth-of-type(2)
+      border-radius: $borderRadius $borderRadius 0 0
+    
+    &:last-child
+      border-radius: 0 0 $borderRadius $borderRadius 
+
+    &:hover
+      .color-pallete__item-code
+        opacity: 1
+        transform: translateX(0)
+    
+  &__item-code
+    background-color: darken($primaryColor, 10)
+    border-radius: $borderRadius
+    padding: 5px
+    color: $lightColor
+    cursor: pointer
+    transform: translateX(-20px)
+    opacity: 0
+    transition: opacity .2s, transform .2s
+
+    &:hover
+      background-color: darken($primaryColor, 15)
+
+    &:active
+      background-color: darken($primaryColor, 20)

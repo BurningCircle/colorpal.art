@@ -1,2 +1,5 @@
-export * from "./buttons/BaseButton"
+export * from "./buttons"
 export * from "./inputs/BaseInput"
+export * from "./menu"
+export * from "./logo"
+export * from "./sidebar"

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, Fragment } from "react"
 import { lightenColor, darkenColor } from "@utils"
-import { BaseButton, BaseInput } from "../../components"
+import { ColorPallete } from "./fragments"
+import { Sidebar } from "@components"
 import "./index.sass"
 
 function MainPage() {
@@ -85,39 +86,14 @@ function MainPage() {
 
   return (
     <Fragment>
-      <div className="app-logo">Colorpal.art</div>
-      <div className="color-form">
-        <div className="color-form__row">
-          <div className="color-form__title">Pick a color:</div>
-          <BaseInput placeholder="#ff00ff" value={inputValue} onChange={onInputChangeHandler} />
-        </div>
-        <input
-          className="color-form__range"
-          type="range"
-          min={1}
-          max={10}
-          value={step}
-          onChange={onRangeChangeHandler}
+      <div className="content">
+        <Sidebar />
+        <ColorPallete
+          colors={colors}
+          copyToClipboard={copyToClipboard}
+          stringColors={stringColors}
+          copiedId={copiedId}
         />
-      </div>
-      <div className="color-pallete">
-        <div className="color-pallete__header">
-          <div className="color-pallete__title">Color pallete</div>
-          <BaseButton disabled={!colors.length} onClick={() => copyToClipboard(stringColors)}>
-            Copy pallete
-          </BaseButton>
-        </div>
-        {colors.map((color) => (
-          <div key={color.id} className="color-pallete__item" style={{ backgroundColor: color.hex }}>
-            <div
-              className="color-pallete__item-code"
-              title="Copy"
-              onClick={() => copyToClipboard(color.hex, color.id)}
-            >
-              {copiedId === color.id ? "Copied" : color.hex}
-            </div>
-          </div>
-        ))}
       </div>
     </Fragment>
   )
