@@ -6,7 +6,8 @@ class Provider extends React.Component {
   state = {
     colorPickers: [
       {
-        color: null,
+        id: Date.now(),
+        color: "",
         step: 5,
       },
     ],
@@ -25,15 +26,31 @@ class Provider extends React.Component {
           addColorPicker: () =>
             this.setState({
               ...this.state,
-              colorPickers: [...this.state.colorPickers, { color: null, step: 5 }],
+              colorPickers: [...this.state.colorPickers, { id: Date.now(), color: "", step: 5 }],
             }),
-          setColor: (index, value) => {
+          setColor: (id, value) => {
             let colorPickers = [...this.state.colorPickers]
-            colorPickers[index].color = value
+            colorPickers.forEach((colorPicker) => {
+              if (colorPicker.id === id) {
+                colorPicker.color = value
+              }
+            })
+            this.setState({
+              ...this.state,
+              colorPickers,
+            })
           },
-          setStep: (index, value) => {
+          setStep: (id, value) => {
             let colorPickers = [...this.state.colorPickers]
-            colorPickers[index].step = value
+            colorPickers.forEach((colorPicker) => {
+              if (colorPicker.id === id) {
+                colorPicker.step = value
+              }
+            })
+            this.setState({
+              ...this.state,
+              colorPickers,
+            })
           },
           changeLocalization: () => {
             this.setState((prevState) => ({
