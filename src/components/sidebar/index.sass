@@ -5,3 +5,85 @@
   width: 250px
   height: 100%
   background: lighten(primaryColor(100), 50)
+  padding: 20px
+  display: flex
+  flex-direction: column
+
+  &__title
+    width: 100%
+    text-align: left
+    color: primaryColor(800)
+    font-weight: 600
+    font-size: 18px
+
+  &__splitter
+    width: 100%
+    background: secondaryColor(900)
+    opacity: .1
+
+    &.bold
+      height: 2px
+
+  &__color-pickers
+    flex: 1
+    overflow-y: auto
+
+.color-pick
+  position: relative
+  width: 100%
+  display: flex
+  flex-direction: column
+  margin-top: 5px
+
+  &__row
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-top: 5px
+
+  &__title
+    font-weight: 500
+    font-size: 16px
+    color: primaryColor(700)
+    
+  &__input[type="text"]
+    width: 60px
+    background-color: transparent
+    text-align: center
+    border: none
+    outline: none
+    border-bottom: 1px solid secondaryColor(700)
+    color: secondaryColor(700)
+    font-weight: 500
+    font-size: 14px
+    opacity: .6
+    transition: .1s
+
+    &:focus
+      opacity: 1
+
+    &:not(:placeholder-shown)
+      opacity: 1
+      
+  &__input[type="range"]
+    width: 60px
+    height: 2px
+    background-color: secondaryColor(500)
+    
+    &::-webkit-slider-thumb 
+      -webkit-appearance: none
+      appearance: none
+      width: 11px
+      height: 11px
+      background: primaryColor(300)
+      cursor: pointer
+
+    &::-moz-range-thumb 
+      width: 15px
+      height: 15px
+      border-radius: 50%
+      background: primaryColor(300)
+      border: none
+      cursor: pointer
+
